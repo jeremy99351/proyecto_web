@@ -48,60 +48,6 @@
                     </div>
 
 
-                    <%--<div class="contenido">
-
-                        <div>
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:Label ID="t2" runat="server" Text="Correo"></asp:Label>
-
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="t3" runat="server" Text="Nombre"></asp:Label>
-
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="t4" runat="server" Text="Apellidos"></asp:Label>
-
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="t5" runat="server" Text="Cedula"></asp:Label>
-
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="Label1" runat="server" Text="Contraseña"></asp:Label>
-
-                                    </td>
-
-                                </tr>
-                                <tr>
-
-
-                                    <td>
-                                        <asp:Label ID="txtCorreo" runat="server" Text=""></asp:Label>
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="txtNombre" runat="server" Text=""></asp:Label>
-                                    </td>
-
-                                    <td>
-                                        <asp:Label ID="txtApellidos" runat="server" Text=""></asp:Label>
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="txtCedula" runat="server" Text=""></asp:Label>
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="txtContrasennia" runat="server" Text=""></asp:Label>
-                                    </td>
-
-
-
-                                </tr>
-                            </table>
-
-                        </div>--%>
-
 
                     <asp:GridView ID="gdvUsuarios" runat="server" AutoGenerateColumns="False" DataKeyNames="cedula_mantenimiento" >
                         <Columns>
@@ -129,7 +75,9 @@
                                 </ItemTemplate>
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Contraseña">
-                                
+                                <ItemTemplate>
+                                    <asp:Label ID="lblCor" runat="server" Text='<%# Eval("correo") %>'></asp:Label>
+                                </ItemTemplate>
                             </asp:TemplateField>
 <%--                            <asp:CommandField HeaderText="Operaciones" ShowHeader="True" ShowDeleteButton="True" />--%>
                         </Columns>

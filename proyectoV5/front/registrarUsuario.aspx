@@ -81,6 +81,12 @@
                 </div>
                 <br />
 
+                div class="input-box">
+                    <asp:Label ID="lblCorreo" runat="server" Text="Correo"></asp:Label>
+                    <asp:TextBox ID="txtCorreo" runat="server"></asp:TextBox>
+                </div>
+                <br />
+
                 <asp:Button ID="btn" class="btn" runat="server" Text="Registrar" OnClick="btn_Click" />
 
 

@@ -27,7 +27,7 @@ public partial class front_registrarUsuario : System.Web.UI.Page
         conexionBD.Open();
         MySqlCommand cmd = new MySqlCommand("insert into usuario_mantenimiento values ('"
           + this.txtCedula.Text + "','"+this.txtNombre.Text+"','"+this.txtAp1.Text+"','"+this.txtAp2.Text
-          +"','"+txtCodigo_Usuario.Text+"')", conexionBD);
+          +"','"+txtCodigo_Usuario.Text+"','"+txtCorreo.Text+"')", conexionBD);
 
         MySqlCommand cmd2 = new MySqlCommand("insert into usuario(tipo_usuario,cod_usuario) values(' "
             + txtTipo_uSUARIO.Text + "','" + txtCodigo_Usuario.Text + "')", conexionBD);
