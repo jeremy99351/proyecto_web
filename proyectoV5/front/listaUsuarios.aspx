@@ -49,7 +49,7 @@
 
 
 
-                    <asp:GridView ID="gdvUsuarios" runat="server" AutoGenerateColumns="False" DataKeyNames="cedula_mantenimiento" >
+                    <asp:GridView ID="gdvUsuarios" runat="server" AutoGenerateColumns="False" OnRowEditing="ModificarFila" DataKeyNames="cedula_mantenimiento" >
                         <Columns>
                             <asp:TemplateField HeaderText="Correo">
                                 <ItemTemplate>
@@ -79,7 +79,7 @@
                                     <asp:Label ID="lblCor" runat="server" Text='<%# Eval("correo") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
-<%--                            <asp:CommandField HeaderText="Operaciones" ShowHeader="True" ShowDeleteButton="True" />--%>
+                          <asp:CommandField HeaderText="Operaciones" ShowHeader="True" ShowEditButton="True" ShowDeleteButton="True" />
                         </Columns>
                     </asp:GridView>
                 </div>
