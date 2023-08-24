@@ -33,14 +33,16 @@ public partial class front_listaUsuarios : System.Web.UI.Page
         }
     }
 
-    private void ActualizarActor(string nombre, string ap1, string cedula, string ap2, string codigo,string correo)
+    private void ActualizarActor(string nombre, string ap1, string cedula, string ap2, string codigo, string correo)
     {
         using (MySqlConnection conexionBD = new MySqlConnection(cadenaConexion))
         {
 
-            string query = "update usuario_mantenimiento set nombre ='"
-                + nombre + "',primer_apellido ='" + ap1 + "' where cedula_mantenimiento = '" + cedula 
-                + "'segundo_apellido = ' "+ap2 + "'cod_usuario ='"+codigo+"' correo ='"+ correo+"'";
+            string query = "update usuario_mantenimiento set " +
+                "nombre ='"+ nombre + "',primer_apellido ='" + ap1 + "',segundo_apellido = ' " + ap2
+                + "',cod_usuario ='" + codigo + "', correo ='" + correo  + "'";
+
+            //"' where cedula_mantenimiento = '" + cedula
 
             MySqlCommand cmd = new MySqlCommand(query, conexionBD);
             conexionBD.Open();
@@ -57,13 +59,18 @@ public partial class front_listaUsuarios : System.Web.UI.Page
         CargarDatos();
     }
 
-    //protected void ActualizarFila(object sender, GridViewUpdateEventArgs e)
-    //{
-    //    string codigo = gdvAutor.DataKeys[e.RowIndex].Value.ToString();
-    //    TextBox txtNombre = (TextBox)gdvAutor.Rows[e.RowIndex].FindControl("txtNombre");
-    //    TextBox txtNacionalidad = (TextBox)gdvAutor.Rows[e.RowIndex].FindControl("txtNacionalidad");
-    //    ActualizarActor(codigo, txtNombre.Text, txtNacionalidad.Text);
-    //    gdvAutor.EditIndex = -1;
-    //    CargarDatos();
-    //}
+    protected void ActualizarFila(object sender, GridViewUpdateEventArgs e)
+    {
+        string codigo = gdvUsuarios.DataKeys[e.RowIndex].Value.ToString();
+
+        TextBox txtNombre = (TextBox)gdvUsuarios.Rows[e.RowIndex].FindControl("txtNombre");
+        TextBox txtAp1 = (TextBox)gdvUsuarios.Rows[e.RowIndex].FindControl("txtAp1");
+        TextBox txtAp2 = (TextBox)gdvUsuarios.Rows[e.RowIndex].FindControl("txtAp2");
+        TextBox txtCedula = (TextBox)gdvUsuarios.Rows[e.RowIndex].FindControl("txtCedula");
+        TextBox txtCorreo = (TextBox)gdvUsuarios.Rows[e.RowIndex].FindControl("txtCorreo");
+
+        ActualizarActor(codigo, txtNombre.Text, txtAp1.Text, txtAp2.Text, txtCedula.Text, txtCorreo.Text);
+        gdvUsuarios.EditIndex = -1;
+        CargarDatos();
+    }
 }
