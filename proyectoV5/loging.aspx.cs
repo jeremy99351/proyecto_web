@@ -13,9 +13,9 @@ using System.Xml.Linq;
 
 public partial class _Default : System.Web.UI.Page
 {
-    
+
     string cadenaConexion = System.Configuration.ConfigurationManager.ConnectionStrings["conexionCALUFA"].ConnectionString;
-   
+
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -26,17 +26,20 @@ public partial class _Default : System.Web.UI.Page
         MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
         conexionBD.Open();
         MySqlCommand cmd = new MySqlCommand("select nombre,primer_apellido,cod_usuario from usuario_mantenimiento where cedula_mantenimiento ='"
-          + this.txtUser.Text+"'"+"and cod_usuario ='"+this.txtPassword.Text+"'", conexionBD);
+          + this.txtUser.Text + "'" + "and cod_usuario ='" + this.txtPassword.Text + "'", conexionBD);
         MySqlDataReader registro = cmd.ExecuteReader();
 
-        
+
 
         if (registro.Read())
         {
             lblMensaje.Text = "Nombre: " + registro["nombre"] + "<br>"
-                + "Apellidos = "+ registro["primer_apellido"] +"<br>"
-                + "Codigo = "+ registro["cod_usuario"];
-            datos(registro["nombre"]+"");
+                + "Apellidos = " + registro["primer_apellido"] + "<br>"
+                + "Codigo = " + registro["cod_usuario"];
+
+            string valor = txtUser.Text.Trim();
+            Response.Redirect("front/listaUsuarios.aspx?texto="+valor);
+            //Response.Redirect("front/listaUsuarios.aspx?texto="+valor);
         }
         else
         {
@@ -45,12 +48,12 @@ public partial class _Default : System.Web.UI.Page
         conexionBD.Close();
     }
 
-    public void datos(string i)
-    {
+    //public void datos(string i)
+    //{
 
-        var inf = i;
+    //    string valor = txtValor.Text.Trim();
 
 
-    }  
+    //}  
 
 }

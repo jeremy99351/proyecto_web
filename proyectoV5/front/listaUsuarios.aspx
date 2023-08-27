@@ -7,12 +7,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 
     <link rel="stylesheet" href="../css/listaAdmi.css" />
-    <link rel="stylesheet" href="../css/lateral.css" />
     <link rel="stylesheet" href="../loading.css" />
+    <link rel="stylesheet" href="../css/lateral.css" />
+    
 
     <title>listar usuarios</title>
 </head>
 <body>
+
     <div class="navbar_lateral">
         <a href="index.html">
             <img src="img/liceo_tambor_escudo.jpg" alt="Logo Gemas"></a>
@@ -20,7 +22,6 @@
         <div id="navbar_lateral_inicio">
             <a href="index.html">INICIO</a>
         </div>
-        <!-- lista de alumnos es la lista global, se incluyen todos los grupos -->
         <div id="navbar_lateral_inicio"><a href="listaAdmi.html">Top ausencias</a></div>
         <div id="navbar_lateral_inicio"><a href="lista_grupo.html">Lista de Grupos </a></div>
         <div id="navbar_lateral_inicio"><a href="registrar_ausccencia.html">Registrar Aucencia</a></div>
@@ -34,11 +35,11 @@
 
     </div>
 
-
     <form id="form1" runat="server">
 
+        <div>  <%-- contenedor de la lista  --%>
+          
 
-        <div>
             <div class="slidershow-container">
 
                 <div id="divisor"></div>
@@ -52,9 +53,9 @@
 
 
 
-                        <asp:GridView ID="gdvUsuarios" runat="server" AutoGenerateColumns="False" OnRowEditing="ModificarFila" OnRowUpdating="ActualizarFila" DataKeyNames="cedula_mantenimiento">
+                        <asp:GridView ID="gdvUsuarios" runat="server" AutoGenerateColumns="False" OnRowEditing="ModificarFila" OnRowUpdating="ActualizarFila" OnRowCancelingEdit="CancelarEdicion" DataKeyNames="cedula_mantenimiento">
                             <Columns>
-                                <asp:TemplateField HeaderText="Correo">
+                                <asp:TemplateField HeaderText="Identificacion">
                                     <ItemTemplate>
                                         <asp:Label ID="lblCorreo" runat="server" Text='<%# Eval("cedula_mantenimiento") %>'></asp:Label>
                                     </ItemTemplate>
@@ -80,22 +81,22 @@
 
                                     <EditItemTemplate>
                                         <asp:TextBox ID="txtAp1" runat="server" Text='<%# Eval("primer_apellido") %>'></asp:TextBox>
-                                        <asp:TextBox ID="txtAp2" runat="server" Text='<%#Eval("segundo_apellido") %>'></asp:TextBox> 
+                                        <asp:TextBox ID="txtAp2" runat="server" Text='<%#Eval("segundo_apellido") %>'></asp:TextBox>
 
                                     </EditItemTemplate>
 
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Codigo del usuario">
+                                <asp:TemplateField HeaderText="Codigo">
                                     <ItemTemplate>
                                         <asp:Label ID="lblCedula" runat="server" Text='<%# Eval("cod_usuario") %>'></asp:Label>
                                     </ItemTemplate>
 
                                     <EditItemTemplate>
-                                        <asp:TextBox ID="txtCedula" runat="server" Text='<%# Eval("cod_usuario") %>'></asp:TextBox>
+                                        <asp:TextBox ID="txtCod" runat="server" Text='<%# Eval("cod_usuario") %>'></asp:TextBox>
                                     </EditItemTemplate>
 
                                 </asp:TemplateField>
-                                <asp:TemplateField HeaderText="Contraseña">
+                                <asp:TemplateField HeaderText="Correo">
                                     <ItemTemplate>
                                         <asp:Label ID="lblCor" runat="server" Text='<%# Eval("correo") %>'></asp:Label>
                                     </ItemTemplate>
