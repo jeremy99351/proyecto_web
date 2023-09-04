@@ -4,12 +4,12 @@
 .navbar_lateral {
     float: left;
     /* margin-top: none; */
-    height: 100%;
+    height: 580px;
     /* Que ocupe todo el ancho de la pantalla */
-    width: 20%;
+    width: 15%;
     /*Definir el ancho del navbar */
-     position: fixed; 
-    /* Fija el navbar, que no se mueva con el scroll */
+/*    position: fixed;
+*/    /* Fija el navbar, que no se mueva con el scroll */
     z-index: 1;
     /* Se mantiene en la parte superior */
     left: 0;

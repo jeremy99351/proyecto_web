@@ -19,15 +19,16 @@ public partial class front_registrarMaterias : System.Web.UI.Page
         MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
         conexionBD.Open();
         MySqlCommand cmd = new MySqlCommand("insert into materia values ('"
-          + this.txtCodigo.Text + "','" + this.txtNombre.Text + "')", conexionBD);
+          + this.txtCodigo.Text + "','" + this.txtNombre.Text + "',' " + this.txtNivel.Text + "')", conexionBD);
 
-         cmd.ExecuteReader();
+        cmd.ExecuteReader();
 
-            Response.Write("<script languaje='JavaScript'>alert('¡Los datos han sido guardados!')</script>");
+        Response.Write("<script languaje='JavaScript'>alert('¡Los datos han sido guardados!')</script>");
 
-            txtCodigo.Text = "";
-            txtNombre.Text = "";
-          
+        txtCodigo.Text = "";
+        txtNombre.Text = "";
+        txtNivel.Text = "";
+
         conexionBD.Close();
     }
 }

@@ -51,9 +51,17 @@
                     <i class='bx bxs-user'></i>
                 </div>
                 <br />
+
                 <div class="input-box">
                     <asp:Label ID="lblNombre" runat="server" Text="Nombre de la materia"></asp:Label>
                     <asp:TextBox ID="txtNombre" runat="server"></asp:TextBox>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <br />
+
+                 <div class="input-box">
+                    <asp:Label ID="lblNivel" runat="server" Text="Nivel para la materia"></asp:Label>
+                    <asp:TextBox ID="txtNivel" runat="server"></asp:TextBox>
                     <i class='bx bxs-user'></i>
                 </div>
                 <br />
