@@ -1,8 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Web;
 using System.Web.Services.Description;
@@ -18,10 +16,6 @@ public partial class front_registrarUsuario : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!IsPostBack)
-        {
-            cargarDDL();
-        }
 
     }
 
@@ -33,54 +27,33 @@ public partial class front_registrarUsuario : System.Web.UI.Page
         conexionBD.Open();
         MySqlCommand cmd = new MySqlCommand("insert into usuario_mantenimiento values ('"
           + this.txtCedula.Text + "','"+this.txtNombre.Text+"','"+this.txtAp1.Text+"','"+this.txtAp2.Text
-          +"','"+ddlUsuario.SelectedValue.ToString()+"','"+txtCorreo.Text+"')", conexionBD);
+          +"','"+txtCodigo_Usuario.Text+"','"+txtCorreo.Text+"')", conexionBD);
 
-        //MySqlCommand cmd2 = new MySqlCommand("insert into usuario(tipo_usuario,cod_usuario) values(' "
-        //    + txtTipo_uSUARIO.Text + "','" + txtCodigo_Usuario.Text + "')", conexionBD);
+        MySqlCommand cmd2 = new MySqlCommand("insert into usuario(tipo_usuario,cod_usuario) values(' "
+            + txtTipo_uSUARIO.Text + "','" + txtCodigo_Usuario.Text + "')", conexionBD);
 
-       // MySqlDataReader usuario = cmd2.ExecuteReader();
-
+        MySqlDataReader usuario = cmd2.ExecuteReader();
         conexionBD.Close();
         conexionBD.Open();
         MySqlDataReader registro = cmd.ExecuteReader();
        
 
         
-        
+        if (registro.Read()&& usuario.Read())
+        {
             Response.Write("los datos han sido guardados");
 
             txtAp1.Text = "";
             txtAp2.Text = "";
             txtCedula.Text = "";
+            txtCodigo_Usuario.Text = "";
             txtNombre.Text = "";
-            txtCorreo.Text = "";
-        
-       
+            txtTipo_uSUARIO.Text = "";
+        }
+        else
+        {
+            Response.Write("! Lo sentimos algo ha salido mal ¡");
+        }
         conexionBD.Close();
     }
-
-    public void cargarDDL()
-    {
-        MySqlConnection conexionBD = new MySqlConnection(cadenaConexion);
-        
-        using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM usuario"))
-        {
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = conexionBD;
-
-            conexionBD.Open();
-            ddlUsuario.DataSource = cmd.ExecuteReader();
-            ddlUsuario.DataTextField = "tipo_usuario";
-            ddlUsuario.DataValueField = "cod_usuario";
-            ddlUsuario.DataBind();
-
-            conexionBD.Close();
-
-        }
-
-
-       // ddlUsuario.Items.Insert(0, new ListItem("--Select Customer--", "0"));
-
-    }
-
 }
