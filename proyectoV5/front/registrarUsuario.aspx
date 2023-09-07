@@ -35,6 +35,7 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <li><a href="">Ver Listas</a>
                     <ul>
                         <li><a href="listarSeccion.aspx">Ver Grupos</a></li>
@@ -49,6 +50,10 @@
        </div>
 
         <form id="form1" runat="server">
+=======
+    </div>
+    <form id="form1" runat="server">
+>>>>>>> parent of 81def5a (jeremy)
 =======
     </div>
     <form id="form1" runat="server">
