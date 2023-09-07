@@ -46,23 +46,27 @@
 
                  <div class="input-box">
                     <asp:Label ID="lblCodigoMateria" runat="server" Text="Materia que iparte"></asp:Label>
-                    <asp:TextBox ID="txtCodMateria" runat="server"></asp:TextBox>
+                     <asp:DropDownList ID="ddlMateria" runat="server"></asp:DropDownList>
+                     
+                    
                     <i class='bx bxs-user'></i>
                 </div>
                 <br />
 
                  <div class="input-box">
-                    <asp:Label ID="lblCodigoUsuario" runat="server" Text="Codigo del usuario"></asp:Label>
-                    <asp:TextBox ID="txtCodUsuario" runat="server"></asp:TextBox>
+                    <asp:Label ID="lblCodigoUsuario" runat="server" Text="Tipo de Usuario"></asp:Label>
+                     <asp:DropDownList ID="ddlUsuario" runat="server"></asp:DropDownList>
+
+                   
                     <i class='bx bxs-user'></i>
                 </div>
                 <br />
 
-                <div class="input-box">
+                <%--<div class="input-box">
                     <asp:Label ID="lblTipo_Usuario" runat="server" Text="Tipo de Usuario"></asp:Label>
                     <asp:TextBox ID="txtTipo_uSUARIO" runat="server"></asp:TextBox>
                 </div>
-                <br />
+                <br />--%>
 
                   <div class="input-box">
                     <asp:Label ID="lblCorreo" runat="server" Text="Correo"></asp:Label>
